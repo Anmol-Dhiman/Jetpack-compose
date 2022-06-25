@@ -3,6 +3,7 @@ package com.example.constraint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
@@ -10,6 +11,7 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -25,7 +27,7 @@ class MainActivity : ComponentActivity() {
 //            we have the constraint layout in jetpack compose also
 
 
-//            here we set the composable or layouts which are going to be in constarintLayout
+//            here we set the composable or layouts which are going to be in constraintLayout
             val constraintSet = ConstraintSet {
                 val greenBox = createRefFor("greenBox")
                 val redBox = createRefFor("redBox")
@@ -36,6 +38,7 @@ class MainActivity : ComponentActivity() {
                     start.linkTo(parent.start)
                     width = Dimension.value(100.dp)
                     height = Dimension.value(100.dp)
+
                 }
 
 //                here we set the redBox in the constraint layout
@@ -48,15 +51,15 @@ class MainActivity : ComponentActivity() {
             }
 
 //            we can do all the same things which we have in xml with the help of functions
-            ConstraintLayout(constraintSet, modifier = Modifier.fillMaxSize()) {
+            ConstraintLayout(constraintSet = constraintSet, modifier = Modifier.fillMaxSize()) {
                 Box(
                     modifier = Modifier
-                        .fillMaxSize()
+                        .background(Color.Green)
                         .layoutId("greenBox")
                 )
                 Box(
                     modifier = Modifier
-                        .fillMaxSize()
+                        .background(Color.Red)
                         .layoutId("redBox")
                 )
             }
