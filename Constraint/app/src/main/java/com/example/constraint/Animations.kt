@@ -108,11 +108,12 @@ fun CircularProgressBar(
         )
 
 
+//    when key1 = true then the code will only execute only once while we entre the Composable and not let any other Scope to run
     LaunchedEffect(key1 = true) {
         animationPlayed = true
     }
 
-    
+
 //    this is the ui part for this composable
     Box(modifier = Modifier.size(radius * 2f), Alignment.Center) {
         Canvas(modifier = Modifier.size(radius * 2f)) {
